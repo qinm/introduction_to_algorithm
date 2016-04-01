@@ -1,1 +1,1 @@
-notes and code for <<introduction to algorithm>>
+notes and code for "introduction to algorithm"
