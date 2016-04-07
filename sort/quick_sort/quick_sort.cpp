@@ -48,3 +48,19 @@ int partion2(vector<int>& nums,int start,int end){        //另一种解法：�
 	return j;
 }
 
+
+int partion3(vector<int>& nums,int start,int end){        //另一种更简单的解法：找到左右不符合条件的元素，交换
+	int pivot=nums[start];
+	int i=start,j=end;
+	while(i<j){
+		while(i<j&&nums[j]>=pivot)	--j;
+		while(i<j&&nums[i]<=pivot)	++i;
+		if(i<j){
+			swap(nums[i],nums[j]);
+		}
+	}
+	swap(nums[start],nums[i]);
+	return i;
+}
+
+//reference:http://developer.51cto.com/art/201403/430986.htm
