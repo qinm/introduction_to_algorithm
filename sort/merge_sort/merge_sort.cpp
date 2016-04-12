@@ -9,20 +9,20 @@
 
 
 /*   此时nums[start...mid] 与 nums[mid+1...end]两部分已分别有序，利用temp数组将两部分合并，则合并后nums[start...end]有序  */
-void merge(vector<int>& nums,int start,int end,int mid,vector<int>& temp){			
+void merge(vector<int>& nums,int start,int end,int mid,vector<int>& temp){
 	int i=start,j=mid+1;
-	int k=0;
-	while(i<=mid&&j<=end){			
+	int k=start;
+	while(i<=mid&&j<=end){
 		if(nums[i]<=nums[j]){
-			temp[k++]=nums[i];
+			temp[k++]=nums[i++];
 		}else{
-			temp[k++]=nums[j];
+			temp[k++]=nums[j++];
 		}
 	}
-	while(i<=mid)	temp[k++]=nums[i];
-	while(j<=end)	temp[k++]=nums[j];
-	fot(int i=0;i<k;++i){
-		nums[i+start]=temp[i];
+	while(i<=mid)	temp[k++]=nums[i++];
+	while(j<=end)	temp[k++]=nums[j++];
+	for(int i=start;i<=end;++i){
+		nums[i]=temp[i];
 	}
 }
 
