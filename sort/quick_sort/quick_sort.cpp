@@ -33,12 +33,12 @@ int partion2(vector<int>& nums,int start,int end){        //另一种解法：�
 	int pivot=nums[start];
 	int i=start,j=end;
 	while(i<j){
-		while(i<j&&nums[j]>=pivot)	--j;
+		while(i<j&&nums[j]>pivot)	--j;
 		if(i<j){
 			nums[i]=nums[j];
 			++i;
 		}
-		while(i<j&&nums[i]<pivot)	++i;
+		while(i<j&&nums[i]<=pivot)	++i;
 		if(i<j){
 			nums[j]=nums[i];
 			--j;
@@ -53,7 +53,7 @@ int partion3(vector<int>& nums,int start,int end){        //另一种更简单�
 	int pivot=nums[start];
 	int i=start,j=end;
 	while(i<j){
-		while(i<j&&nums[j]>=pivot)	--j;
+		while(i<j&&nums[j]>pivot)	--j;
 		while(i<j&&nums[i]<=pivot)	++i;
 		if(i<j){
 			swap(nums[i],nums[j]);
